@@ -1,36 +1,5 @@
-let cardContainer;
-
-fetch("https://bsalejhernandez.herokuapp.com/api/products/").then(function (response) {
-	return response.json();
-}).then(function (data) {
-
-    dataJsonObject = data
-    // console.log(data)
-    initListofItems(data)
-
-}).catch(function (err) {
-	// There was an error
-	console.warn('Something went wrong.', err);
-});
-
-categories = fetch("https://bsalejhernandez.herokuapp.com/api/categories/").then(function (response) {
-	return response.json();
-}).then(function (data) {
-
-    dataJsonObject = data
-    let selector = document.getElementById("categories")
-    data.forEach((category) => {
-    var c = document.createElement("option")
-    c.text = category.name
-    c.value = category.name
-    selector.appendChild(c)
-    });
-
-}).catch(function (err) {
-	// There was an error
-	console.warn('Something went wrong.', err);
-});
-
+var cardContainer;
+var searchContainer;
 
 function generateCard(ItemCard) {
     let card = document.createElement('div');
@@ -74,8 +43,7 @@ function generateCard(ItemCard) {
     cardContainer.appendChild(card);
 }
 
-let initListofItems = (items) => {
-
+function initListofItems(items){
     if (cardContainer) {
         document.getElementById('card-container').replaceWith(cardContainer);
         return;
@@ -85,3 +53,85 @@ let initListofItems = (items) => {
         generateCard(item);
     });
 };
+
+function initListofSearch(items){
+    if (searchContainer) {
+        document.getElementById('tester').replaceWith(searchContainer);
+        return;
+    }
+    mainresults = document.getElementById('card-container')
+    mainresults.innerText=""
+    cardContainer = document.getElementById('tester');
+    items.forEach((item) => {
+        generateCard(item);
+    });
+};
+
+
+function fetchOG ()
+{fetch("https://bsalejhernandez.herokuapp.com/api/products/").then(function (response) {
+	return response.json();
+}).then(function (data) {
+    dataJsonObject = data
+    initListofItems(data)
+}).catch(function (err) {
+	// There was an error
+	console.warn('Something went wrong.', err);
+});
+}
+fetch("https://bsalejhernandez.herokuapp.com/api/categories/").then(function (response) {
+	return response.json();
+}).then(function (data) {
+    dataJsonObject = data
+    let selector = document.getElementById("categories")
+    data.forEach((category) => {
+        var c = document.createElement("option")
+        c.text = category.name
+        c.value = category.name
+        selector.appendChild(c)
+
+        let body = document.getElementById("card-container")
+        var a = document.createElement("h5")
+        a.innerText = category.name
+        body.appendChild(a)
+        
+    })
+}).catch(function (err) {
+	// There was an error
+	console.warn('Something went wrong.', err);
+});
+
+
+function Search ()
+{
+    searchValue = document.getElementById("SearchForm")[0].value
+    fetch(`https://bsalejhernandez.herokuapp.com/api/search/${searchValue}`).then(function (response) {
+	return response.json();
+}).then(function (data) {
+    console.log(data)
+    // initListofItems(data)
+
+    initListofSearch(data)
+}).catch(function (err) {
+	// There was an error
+	console.warn('Something went wrong.', err);
+});
+}
+
+function Search ()
+{
+    searchValue = document.getElementById("SearchForm")[0].value
+    fetch(`https://bsalejhernandez.herokuapp.com/api/search/${searchValue}`).then(function (response) {
+	return response.json();
+}).then(function (data) {
+    console.log(data)
+    // initListofItems(data)
+
+    initListofSearch(data)
+}).catch(function (err) {
+	// There was an error
+	console.warn('Something went wrong.', err);
+});
+}
+
+fetchOG()
