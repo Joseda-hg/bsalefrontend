@@ -35,7 +35,7 @@ function generateCard(ItemCard) {
   button.id = "button";
 
   h5.innerText = ItemCard.name;
-  price.innerText = ItemCard.price;
+  price.innerText = `$${ItemCard.price}`;
   button.innerText = "Agregar al carrito";
   button.onclick = addToCart;
 
