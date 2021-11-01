@@ -8,39 +8,6 @@ class ItemCard{
         this.category = category
     }
 }
- 
-
-// let categories = [
-//     {
-//         "id": 1,
-//         "name": "bebida energetica"
-//     },
-//     {
-//         "id": 2,
-//         "name": "pisco"
-//     },
-//     {
-//         "id": 3,
-//         "name": "ron"
-//     },
-//     {
-//         "id": 4,
-//         "name": "bebida"
-//     },
-//     {
-//         "id": 5,
-//         "name": "snack"
-//     },
-//     {
-//         "id": 6,
-//         "name": "cerveza"
-//     },
-//     {
-//         "id": 7,
-//         "name": "vodka"
-//     }
-// ]
-
 
 items = fetch("https://bsalejhernandez.herokuapp.com/api/products/").then(function (response) {
 	return response.json();
