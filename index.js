@@ -129,13 +129,13 @@ function fetchByCategory()    {
         return response.json();
     }).then(function (data) {
         console.log(data)
-    
         initListofSearch(data)
+        return false
     }).catch(function (err) {
         // There was an error
         console.warn('Something went wrong.', err);
     });
+    return false
     }
 
 fetchOG()
-    
