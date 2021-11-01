@@ -28,11 +28,14 @@ function generateCard(ItemCard) {
     price.className = 'card-text';
 
     let button = document.createElement('a');
-    button.className = 'btn btn-primary';
+    button.className = 'btn btn-primary bnw';
+    button.id = "button"
+
 
     h5.innerText = ItemCard.name;
     price.innerText = ItemCard.price;
     button.innerText = 'Agregar al carrito';
+    button.onclick = addToCart
 
     // discount
     cardBody.appendChild(h5);
@@ -62,6 +65,7 @@ function initListofSearch(items){
     mainresults = document.getElementById('card-container')
     mainresults.innerText=""
     cardContainer = document.getElementById('tester');
+    cardContainer.innerText =""
     items.forEach((item) => {
         generateCard(item);
     });
@@ -79,6 +83,8 @@ function fetchOG ()
 	console.warn('Something went wrong.', err);
 });
 }
+
+
 fetch("https://bsalejhernandez.herokuapp.com/api/categories/").then(function (response) {
 	return response.json();
 }).then(function (data) {
@@ -91,16 +97,17 @@ fetch("https://bsalejhernandez.herokuapp.com/api/categories/").then(function (re
         // console.log(`Valor: ${c.value}, nombre: ${c.text}`)
         selector.appendChild(c)
 
-        let body = document.getElementById("card-container")
-        var a = document.createElement("h5")
-        a.innerText = category.name
-        body.appendChild(a)
+        // let body = document.getElementById("card-container")
+        // var a = document.createElement("h5")
+        // a.innerText = category.name
+        // body.appendChild(a)
         
     })
 }).catch(function (err) {
 	// There was an error
 	console.warn('Something went wrong.', err);
 });
+
 
 
 function Search ()
@@ -110,8 +117,8 @@ function Search ()
 	return response.json();
 }).then(function (data) {
     console.log(data)
-    // initListofItems(data)
     initListofSearch(data)
+    return false
 }).catch(function (err) {
 	// There was an error
 	console.warn('Something went wrong.', err);
@@ -136,4 +143,10 @@ function fetchByCategory()    {
     return false;
 }
     
-    fetchOG()
+fetchOG()
+
+
+function addToCart(){
+    alert("Añadido al carrito");
+    console.log("presionado add to cart")
+}

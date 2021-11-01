@@ -11,26 +11,24 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">BSale Test</a>
-  <form class="form-inline my-2 ml-auto flex-lg-wrap flex-grow-1" onSubmit="return Search()" id="SearchForm">
+  <a class="navbar-brand" href="./index.html">BSale Test</a>
+  <form class="form-inline my-2 ml-auto flex-lg-wrap flex-grow-1" onSubmit="Search();return false" id="SearchForm">
     <input id="search-box" class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0 ml-auto" type="submit">Search</button>
   </form>
   <a href="#" class="bi bi-cart2 ml-auto" id="cart-logo"></a>
 </nav>
 
-<div id="tester"></div>
-
 <form >
-    <label for="Category">Solo Mostrar Productos en la categoria:</label>
-    <select name="categories" id="categories">
+  <label for="Category">Solo Mostrar Productos en la categoria:</label>
+  <select class="form-select" name="categories" id="categories">
+    
+  </select>
+  <input type="submit" action="#" class="btn btn-primary btn-sm" onClick="fetchByCategory();return false" value="Send">
+</form>
 
-    </select>
-    <br><br>
-    <input type="submit" action="#"  onClick="fetchByCategory();return false" value="Send">
-  </form>
 
-
+<div id="tester"></div>
 <div id ="card-container"></div>
 
  <script src="index.js" defer>initListofItems()</script>
