@@ -47,7 +47,7 @@ items = fetch("https://bsalejhernandez.herokuapp.com/api/products/").then(functi
 }).then(function (data) {
 
     dataJsonObject = data
-    console.log(data)
+    // console.log(data)
     initListofItems(data)
 
 }).catch(function (err) {
@@ -62,7 +62,7 @@ categories = fetch("https://bsalejhernandez.herokuapp.com/api/categories/").then
 }).then(function (data) {
 
     dataJsonObject = data
-    console.log(data)
+    // console.log(data)
     
     let selector = document.getElementById("categories")
     data.forEach((category) => {
@@ -71,7 +71,7 @@ categories = fetch("https://bsalejhernandez.herokuapp.com/api/categories/").then
     c.value = category.name
     selector.appendChild(c)
     });
-    
+
 }).catch(function (err) {
 	// There was an error
 	console.warn('Something went wrong.', err);
