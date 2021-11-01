@@ -1,15 +1,6 @@
-class ItemCard{
-    constructor(id,name,url_image,price,discount,category){
-        this.id = id,
-        this.name = name,
-        this.url_image = url_image,
-        this.price = price
-        this.discount = discount
-        this.category = category
-    }
-}
+let cardContainer;
 
-items = fetch("https://bsalejhernandez.herokuapp.com/api/products/").then(function (response) {
+fetch("https://bsalejhernandez.herokuapp.com/api/products/").then(function (response) {
 	return response.json();
 }).then(function (data) {
 
@@ -22,15 +13,11 @@ items = fetch("https://bsalejhernandez.herokuapp.com/api/products/").then(functi
 	console.warn('Something went wrong.', err);
 });
 
-
-
 categories = fetch("https://bsalejhernandez.herokuapp.com/api/categories/").then(function (response) {
 	return response.json();
 }).then(function (data) {
 
     dataJsonObject = data
-    // console.log(data)
-    
     let selector = document.getElementById("categories")
     data.forEach((category) => {
     var c = document.createElement("option")
@@ -44,15 +31,6 @@ categories = fetch("https://bsalejhernandez.herokuapp.com/api/categories/").then
 	console.warn('Something went wrong.', err);
 });
 
-
-
-
-
-
-
-
-
-let cardContainer;
 
 function generateCard(ItemCard) {
     let card = document.createElement('div');
@@ -107,19 +85,3 @@ let initListofItems = (items) => {
         generateCard(item);
     });
 };
-// initListofItems(items)
-
-
-// function searchFunction (searchTerm) {
-//     console.log(searchTerm)
-// }
-
-function setAction(form) {
-    form.action = "register.html";
-    alert(form.action);
-    return false;
-  }
-
-function filterbyCategory(){
-
-}
