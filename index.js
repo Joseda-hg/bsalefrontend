@@ -122,20 +122,18 @@ function Search ()
 
 
 function fetchByCategory()    {
-        console.log(document.getElementById("categories").value)
-        console.log("Entra en fetch by category")
-        CategoryValue = document.getElementById("categories").value
-        fetch(`https://bsalejhernandez.herokuapp.com/api/products/category/${CategoryValue}`).then(function (response) {
-        return response.json();
+    CategoryValue = document.getElementById("categories").value
+    fetch(`https://bsalejhernandez.herokuapp.com/api/products/category/${CategoryValue}`).then(function (response) {
+    return response.json()
     }).then(function (data) {
         console.log(data)
         initListofSearch(data)
-        return false
+        return false;
     }).catch(function (err) {
         // There was an error
-        console.warn('Something went wrong.', err);
+        console.warn('Something went wrong.', err)
     });
-    return false
-    }
-
-fetchOG()
+    return false;
+}
+    
+    fetchOG()
