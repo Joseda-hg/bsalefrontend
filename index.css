@@ -1,4 +1,4 @@
-#card-container {
+#card-container, #tester {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
@@ -13,13 +13,6 @@
     height: 20vw;
     object-fit: cover;
 }
-
-#tester {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 10px;
-
-  }
 
 #cart-logo{
     text-align: right;
