@@ -6,6 +6,16 @@
     padding-right:15% ;
   }
 
+@media only screen and (max-width: 600px) {
+  #card-container, #tester {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 10px;
+    padding-left:10% ;
+    padding-right:15% ;
+  }
+}
+
 a{
   color: aliceblue
 }
