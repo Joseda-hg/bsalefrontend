@@ -80,7 +80,7 @@ function initListofSearch(items) {
 
 // Fetch inicial de datos, solicitud GET a la BD
 function fetchOG() {
-  fetch("https://bsalejhernandez.herokuapp.com/api/products/")
+  fetch("https://bsalejhernandez.herokuapp.com/api/products/",{mode:"no-cors"})
     .then(function (response) {
       return response.json();
     })
@@ -95,7 +95,7 @@ function fetchOG() {
 }
 
 // fetch de categorias
-fetch("https://bsalejhernandez.herokuapp.com/api/categories/")
+fetch("https://bsalejhernandez.herokuapp.com/api/categories/",{mode:"no-cors"})
   .then(function (response) {
     return response.json();
   })
@@ -124,7 +124,7 @@ fetch("https://bsalejhernandez.herokuapp.com/api/categories/")
 // Recibe su valor de busqueda de un Input con ID SearchForm, el cuadro de busqueda principal de la pagina
 function Search() {
   searchValue = document.getElementById("SearchForm")[0].value;
-  fetch(`https://bsalejhernandez.herokuapp.com/api/search/${searchValue}`)
+  fetch(`https://bsalejhernandez.herokuapp.com/api/search/${searchValue}`,{mode:"no-cors"})
     .then(function (response) {
       return response.json();
     })
@@ -143,7 +143,7 @@ function Search() {
 function fetchByCategory() {
   CategoryValue = document.getElementById("categories").value;
   fetch(
-    `https://bsalejhernandez.herokuapp.com/api/products/category/${CategoryValue}`
+    `https://bsalejhernandez.herokuapp.com/api/products/category/${CategoryValue},{mode:"no-cors"}`
   )
     .then(function (response) {
       return response.json();
