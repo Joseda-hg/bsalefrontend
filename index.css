@@ -6,6 +6,17 @@
     padding-right:15% ;
   }
 
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  #card-container, #tester {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 10px;
+  padding-left:10% ;
+  padding-right:15% ;
+}
+}
+
   a{color: aliceblue}
 
 .card-img-top {
