@@ -14,6 +14,13 @@
     padding-left:10% ;
     padding-right:15% ;
   }
+
+  .card-img-top {
+    width: 100%;
+    height: 25vw;
+    object-fit: cover;
+}
+
 }
 
 a{
