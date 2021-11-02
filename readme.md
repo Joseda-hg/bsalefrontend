@@ -1,6 +1,8 @@
 # Readme para Front end prueba BSale
 
-Esta sencilla aplicacion integra HTML, Vanilla Javascript, y CSS(Con apoyo de la libreria bootstrap), para consumir mediante una RESTful API productos de una base de datos
+Esta sencilla aplicacion integra HTML, Vanilla Javascript, y CSS (Con apoyo de la libreria bootstrap), para consumir mediante una RESTful API productos de una base de datos
+
+El codigo de esta aplicacion  esta en un repositorio privado de git, por mantener la integridad de la prueba esta en privado, ya que de otra forma  seria facilmente accesible para otros postulantes [Aplicacion en github](https://github.com/Joseda-hg/bsalefrontend)
 
 Esta aplicacion posee un deployment en Heroku, accesible mediante el link [Frontend Prueba BSale](https://bsalefrontendjhernandez.herokuapp.com/) 
 
@@ -21,3 +23,10 @@ Los endpoints usados por la aplicacion son los siguientes:
 * /api/search/:searchterm GET, retorna un json con todos los objetos que correspondan vagamente al termino
 
 El boton de agregar carrito unicamente activa una funcion para generar un alert, lo mas logico seria generar una solicitud post con los productos añadidos al carrito, pero las solicitudes post no irian a ninguna parte, para ese efecto, el alert provee el feedback demostrable al boton
+
+
+
+Los archivos index.php y composer.json solamente estan presentes para que heroku reciba la pagina estatica, ya que no tienen una forma mas directa de hostear esta clase de paginas
+
+
+
